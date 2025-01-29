@@ -34,7 +34,7 @@ const stream = (file, res, range) => {
     const fileStream = fs.createReadStream(file, { start, end });
 
     fileStream.on('open', () => {
-      stream.pipe(res);
+      fileStream.pipe(res);
     });
 
     fileStream.on('error', (streamErr) => {
